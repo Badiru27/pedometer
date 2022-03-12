@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pedometer_test/pedometer_service.dart';
 import 'package:pedometer_test/pedometer_viewmodel.dart';
 import 'package:stacked/stacked.dart';
 
@@ -7,9 +8,9 @@ class PedometerView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ViewModelBuilder<PedometerViewModel>.reactive(
+    return ViewModelBuilder<PedometerService>.reactive(
       
-        viewModelBuilder: () => PedometerViewModel(),
+        viewModelBuilder: () => PedometerService(),
         onModelReady: (model)=> model.init(),
         builder: (context, model, child) => SafeArea(
               child: Scaffold(
@@ -54,7 +55,21 @@ class PedometerView extends StatelessWidget {
 
                   
                       ),
-                      Text(model.time.toString())
+                       SizedBox(height: 10,),
+                      Text(' Today Step: ${model.todayStep.toString()}'),
+                      SizedBox(height: 10,),
+                      Text(' Steps to be saved: ${model.stepsToBeSaved.toString()}'),
+                       SizedBox(height: 10,),
+                      Text(' Previous step taken: ${model.previousStepsTaken.toString()}'),
+                       SizedBox(height: 10,),
+
+                      Text(' Event.step: ${model.myevent.toString()}'),
+                       SizedBox(height: 10,),
+
+                      Text(' Case: ${model.mywhere.toString()}')
+
+                     
+                     
                     ],
                   ),
                 ),

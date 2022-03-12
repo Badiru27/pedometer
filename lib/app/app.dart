@@ -1,5 +1,6 @@
 
 import 'package:pedometer_test/local_storage.dart';
+import 'package:pedometer_test/pedometer_service.dart';
 import 'package:pedometer_test/pedometer_viewmodel.dart';
 import 'package:pedometer_test/permission_handler.dart';
 import 'package:stacked/stacked_annotations.dart';
@@ -13,5 +14,6 @@ import 'package:stacked_services/stacked_services.dart';
   LazySingleton(classType: PedometerViewModel),
   LazySingleton(classType: PermissionHandlerService),
   LazySingleton(classType: LocalStorageService),
+  LazySingleton(classType: PedometerService),
 ])
 class AppSetup {}

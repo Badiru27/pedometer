@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:pedometer_test/app/app.locator.dart';
+import 'package:pedometer_test/local_storage.dart';
 import 'package:pedometer_test/pedometer_view.dart';
 
 
-void main() {
+void main() async{
    setupLocator();
+   await LocalStorageService.getInstance();
   runApp(const MyApp());
 }
 

@@ -68,9 +68,17 @@ class LocalStorageService {
     }
   }
 
-  // Future<void> savePreviousStep({required int steps}) async {
-  //   await _saveToDisk(previousStepKey, json.encode({'steps': steps}));
-  // }
+  Future<void> savePreviousStepsTaken({required int steps}) async {
+    await _saveToDisk(previousStepKey, json.encode({'steps': steps}));
+  }
+
+  int getPreviousStepsTaken() {
+    final response = jsonDecode(_getFromDisk(previousStepKey).toString());
+    if (response == null) {
+      return 0;
+    }
+    return response['steps'];
+  }
 
   Future<void> saveSteps({required int steps, required DateTime key}) async {
     await _saveToDisk('${key.year}${key.month}${key.day}${key.hour}',

@@ -10,6 +10,8 @@ import 'package:stacked/stacked.dart';
 import 'package:stacked/stacked_annotations.dart';
 import 'package:stacked_services/stacked_services.dart';
 
+import '../local_storage.dart';
+import '../pedometer_service.dart';
 import '../pedometer_viewmodel.dart';
 import '../permission_handler.dart';
 
@@ -25,4 +27,6 @@ void setupLocator({String? environment, EnvironmentFilter? environmentFilter}) {
   locator.registerLazySingleton(() => NavigationService());
   locator.registerLazySingleton(() => PedometerViewModel());
   locator.registerLazySingleton(() => PermissionHandlerService());
+  locator.registerLazySingleton(() => LocalStorageService());
+  locator.registerLazySingleton(() => PedometerService());
 }
